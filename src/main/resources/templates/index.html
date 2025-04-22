@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Bookstore</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
-$END$
+<div class="nav">
+  <div class="btn" id="home">Home</div>
+  <div class="btn">Contact</div>
+  <div class="btn">About</div>
+  <div class="btn" th:href="@{/search}">
+    <a th:href="@{/search}" style="color: white; text-decoration: none;">Search book</a>
+  </div>
+
+  <div class="btn">Log out</div>
+</div>
+
+<div class="book-list">
+  <h2>Books</h2>
+  <div th:each="book : ${books}">
+    <p th:text="'Title: ' + ${book['title']} + ' | Author: ' + ${book['author']}"></p>
+  </div>
+</div>
+
 </body>
 </html>

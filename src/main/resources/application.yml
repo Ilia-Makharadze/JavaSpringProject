@@ -1,1 +1,10 @@
-spring.application.name=Book website
+spring:
+  application:
+    name: bookwebsite
+
+  thymeleaf:
+    cache: false
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
