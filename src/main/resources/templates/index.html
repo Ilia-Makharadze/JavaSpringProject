@@ -18,10 +18,15 @@
 
 <div class="book-list">
   <h2>Books</h2>
-  <div th:each="book : ${books}">
-    <p th:text="'Title: ' + ${book['title']} + ' | Author: ' + ${book['author']}"></p>
+  <div class="books-container">
+    <div th:each="book : ${books}" class="book-item">
+      <div class="book-title" th:text="${book['title']}"></div>
+      <div class="book-author" th:text="${book['author']}"></div>
+      <div class="book-author" th:text="${book['genre']}"></div>
+    </div>
   </div>
 </div>
+
 
 </body>
 </html>
