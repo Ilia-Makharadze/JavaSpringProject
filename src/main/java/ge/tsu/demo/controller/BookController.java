@@ -15,10 +15,13 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @GetMapping("/")
+    @GetMapping({"/", "/home"})
     public String index(Model model) {
+        List<Book> books = bookRepository.findAll();
+        model.addAttribute("books", books);
         return "index";
     }
+
 
     @GetMapping("/search")
     public String searchBooks(Model model) {
@@ -26,4 +29,5 @@ public class BookController {
         model.addAttribute("books", books);
         return "index";
     }
+
 }

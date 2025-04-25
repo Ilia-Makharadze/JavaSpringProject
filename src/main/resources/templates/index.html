@@ -6,8 +6,8 @@
 </head>
 <body>
 <div class="nav">
-  <div class="btn" id="home">Home</div>
-  <div class="btn">Contact</div>
+  <a class="btn" th:href="@{/home}">Home</a>
+  <a class="btn" th:href="@{/contact}" style="color: white; text-decoration: none;">Contact</a>
   <div class="btn">About</div>
   <div class="btn" th:href="@{/search}">
     <a th:href="@{/search}" style="color: white; text-decoration: none;">Search book</a>
@@ -26,7 +26,6 @@
     </div>
   </div>
 </div>
-
 
 </body>
 </html>

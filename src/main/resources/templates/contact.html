@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<div class="nav">
+    <div class="btn" id="home">Home</div>
+    <div class="btn" th:href="@{/contact}">Contact</div>
+    <div class="btn">About</div>
+    <div class="btn" th:href="@{/search}">
+        <a th:href="@{/search}" style="color: white; text-decoration: none;">Search book</a>
+    </div>
+
+    <div class="btn">Log out</div>
+</div>
+
+<div class="contact-info">
+    <h2>Contact Information</h2>
+    <p>Email: ilia.makharadze935@ens.tsu.edu.ge</p>
+</div>
+</body>
+</html>
