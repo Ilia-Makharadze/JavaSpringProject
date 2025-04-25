@@ -8,11 +8,11 @@
 <div class="nav">
   <a class="btn" th:href="@{/home}">Home</a>
   <a class="btn" th:href="@{/contact}" style="color: white; text-decoration: none;">Contact</a>
+  <a class="btn" href="/addBookForm">Add a New Book</a>
   <div class="btn">About</div>
   <div class="btn" th:href="@{/search}">
     <a th:href="@{/search}" style="color: white; text-decoration: none;">Search book</a>
   </div>
-
   <div class="btn">Log out</div>
 </div>
 
@@ -20,12 +20,11 @@
   <h2>Books</h2>
   <div class="books-container">
     <div th:each="book : ${books}" class="book-item">
-      <div class="book-title" th:text="${book['title']}"></div>
-      <div class="book-author" th:text="${book['author']}"></div>
-      <div class="book-author" th:text="${book['genre']}"></div>
+      <div class="book-title" th:text="${book.title}"></div>
+      <div class="book-author" th:text="${book.author}"></div>
+      <div class="book-genre" th:text="${book.genre}"></div>
     </div>
   </div>
 </div>
-
 </body>
 </html>
