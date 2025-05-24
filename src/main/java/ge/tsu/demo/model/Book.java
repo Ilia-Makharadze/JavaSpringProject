@@ -15,12 +15,15 @@ public class Book {
     private String title;
     private String author;
     private String genre;
+    //private String imageUrl;
+
 
 
     public Book(String title, String author, String genre) {
         this.title = title;
         this.author = author;
         this.genre = genre;
+       // this.imageUrl = imageUrl;
     }
 
     public Book() {
@@ -43,4 +46,7 @@ public class Book {
     public String getGenre() { return genre; }
 
     public void setGenre(String genre) { this.genre = genre; }
+//    public String getImageUrl() {return imageUrl;}
+//
+//    public void setImageUrl(String imageUrl) {this.imageUrl = imageUrl;}
 }

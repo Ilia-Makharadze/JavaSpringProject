@@ -19,7 +19,7 @@ public class BookController {
     @GetMapping({"/", "/home"})
     public String index(Model model) {
         model.addAttribute("books", bookRepository.findAll());
-        model.addAttribute("book", new Book());  // Empty book object for the form
+        model.addAttribute("book", new Book());
         return "index";
     }
 
@@ -33,14 +33,14 @@ public class BookController {
     // Get request to show the Add Book form
     @GetMapping("/addBookForm")
     public String addBookForm(Model model) {
-        model.addAttribute("book", new Book());  // Create a new Book object for the form
-        return "addBook";  // The new form page
+        model.addAttribute("book", new Book());  // create a new book object for the form
+        return "addBook";
     }
 
     // POST request to add a new book
     @PostMapping("/addBook")
     public String addBook(@ModelAttribute("book") Book book) {
-        bookRepository.save(book);  // Save the new book
-        return "redirect:/home"; // Redirect to home page after adding the book
+        bookRepository.save(book);
+        return "redirect:/home"; // redirect to home page after adding the book
     }
 }

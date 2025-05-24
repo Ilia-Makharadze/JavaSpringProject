@@ -25,33 +25,60 @@ body {
 
 
 .book-list {
-    background: white;
+    background: orange;
     padding: 20px;
     border-radius: 5px;
+
 }
 
 
 .books-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-}
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: orange;
+    /*background: linear-gradient(to bottom right, #fefefe, #f3f3f3);*/
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+}
 
 .book-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: calc(33.333% - 10px);
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
     box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    /*box-shadow: 5px 10px #7f8c8d;*/
 }
 
+.book-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 5px 10px #7f8c8d;
+}
 
 .book-title {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #2c3e50;
 }
 
 .book-author {
-    color: #555;
+    color: #7f8c8d;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.book-genre {
+    color: #3498db;
+    font-size: 0.9em;
+    font-style: italic;
 }
