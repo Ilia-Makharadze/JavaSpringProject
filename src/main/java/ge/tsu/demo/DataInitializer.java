@@ -7,12 +7,15 @@ import ge.tsu.demo.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @Configuration
 public class DataInitializer {
 
+
     @Bean
-    CommandLineRunner initDatabase(BookRepository bookRepo, UserRepository userRepo) {
+    CommandLineRunner initDatabase(BookRepository bookRepo, UserRepository userRepo, PasswordEncoder passwordEncoder) {
         return args -> {
             if (bookRepo.count() == 0) {
                 bookRepo.save(new Book("To Kill a Mockingbird", "Harper Lee", "Fiction"));
@@ -25,18 +28,9 @@ public class DataInitializer {
                 bookRepo.save(new Book("Crime and Punishment", "Fyodor Dostoevsky", "Psychological Fiction"));
                 bookRepo.save(new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy"));
                 bookRepo.save(new Book("Brave New World", "Aldous Huxley", "Dystopian"));
-                bookRepo.save(new Book("1984", "George Orwell", "Dystopian"));
-                bookRepo.save(new Book("To Kill a Mockingbird", "Harper Lee", "Classic"));
-                bookRepo.save(new Book("The Great Gatsby", "F. Scott Fitzgerald", "Classic"));
-                bookRepo.save(new Book("Moby Dick", "Herman Melville", "Adventure"));
-                bookRepo.save(new Book("Pride and Prejudice", "Jane Austen", "Romance"));
-                bookRepo.save(new Book("The Catcher in the Rye", "J.D. Salinger", "Classic"));
                 bookRepo.save(new Book("Jane Eyre", "Charlotte Brontë", "Romance"));
-                bookRepo.save(new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy"));
                 bookRepo.save(new Book("Fahrenheit 451", "Ray Bradbury", "Dystopian"));
-                bookRepo.save(new Book("Crime and Punishment", "Fyodor Dostoevsky", "Philosophical"));
                 bookRepo.save(new Book("Wuthering Heights", "Emily Brontë", "Classic"));
-                bookRepo.save(new Book("War and Peace", "Leo Tolstoy", "Historical"));
                 bookRepo.save(new Book("The Odyssey", "Homer", "Epic"));
                 bookRepo.save(new Book("The Iliad", "Homer", "Epic"));
                 bookRepo.save(new Book("Don Quixote", "Miguel de Cervantes", "Adventure"));
@@ -79,9 +73,9 @@ public class DataInitializer {
             }
 
             if (userRepo.count() == 0) {
-                userRepo.save(new User("user1", "user1@example.com"));
-                userRepo.save(new User("user2", "user2@example.com"));
-                System.out.println("Sample users have been added to the database.");
+                userRepo.save(new User("user1", "user1@example.com", passwordEncoder.encode("password123")));
+                userRepo.save(new User("user2", "user2@example.com", passwordEncoder.encode("password456")));
+                System.out.println("Sample users with encoded passwords have been added to the database.");
             }
         };
     }
