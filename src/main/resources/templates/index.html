@@ -3,8 +3,36 @@
 <head>
   <title>Bookstore</title>
   <link rel="stylesheet" th:href="@{/style.css}" />
+  <style>
+    .lang-selector {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
 </head>
 <body>
+<div class="lang-selector">
+  <select id="languageDropdown" onchange="changeLanguage()">
+    <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+    <option value="ka" th:selected="${#locale.language == 'ka'}">ქართული</option>
+    <option value="fr" th:selected="${#locale.language == 'fr'}">Français</option>
+    <option value="ru" th:selected="${#locale.language == 'ru'}">Русский</option>
+    <option value="es" th:selected="${#locale.language == 'es'}">Español</option>
+
+  </select>
+</div>
+
+<script>
+  function changeLanguage() {
+    const selectedLang = document.getElementById("languageDropdown").value;
+    const currentUrl = window.location.href.split('?')[0]; // remove previous params
+    window.location.href = currentUrl + "?lang=" + selectedLang;
+  }
+</script>
+
+<h1 th:text="#{welcome.message}">Default</h1>
+
 <div class="nav">
   <a class="btn" th:href="@{/home}" style="text-decoration: none;">Home</a>
   <a class="btn" th:href="@{/contact}" style="color: white; text-decoration: none;">Contact</a>
