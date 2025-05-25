@@ -1,0 +1,17 @@
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://prod-db-host:3306/bookdb
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: produser
+    password: prodpassword
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  h2:
+    console:
+      enabled: false
