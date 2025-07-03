@@ -24,8 +24,20 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/register", "/login", "/css/**", "/js/**", "/h2-console/**").permitAll()
-                        .requestMatchers("/addBookForm", "/addBook").authenticated()
+                        .requestMatchers(
+                                "/register",
+                                "/login",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/webjars/**",
+                                "/h2-console/**",
+                                "/actuator/**"       // actuator endpoints PUBLIC
+                        ).permitAll()
+                        .requestMatchers(
+                                "/addBookForm",
+                                "/addBook"
+                        ).authenticated()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
@@ -40,8 +52,8 @@ public class SecurityConfig {
                 )
                 .authenticationProvider(authenticationProvider());
 
-        // for h2 console database
-        http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()));
+        // enable H2 console frames
+        http.headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()));
 
         return http.build();
     }
